@@ -1,0 +1,20 @@
+    <h4>Listado</h4>
+    <ul class="list-group">
+      <li *ngFor="let personaje of listaPersonajes; let i=index; let esPar=even; let esUltimo=last; let esPrimero=first"
+      class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="{
+        'list-group-item-primary': esPrimero,
+        'list-group-item-secondary': esPar,
+        'list-group-item-danger': esUltimo
+      }"
+      >
+      <div>
+        <span>{{ i+1 }}: </span>
+        <span>{{ personaje.nombre}} - </span>
+        <strong>Fuerza: </strong>
+        <span>{{ personaje.fuerza }}</span>
+      </div>
+
+      <button class="btn btn-danger" (click)="deletePersonaje( personaje.id )">X</button>
+      <!-- <span>Par? {{ esPar }} - Último? {{ esUltimo}}</span> -->
+    </ul>
